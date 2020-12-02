@@ -21,12 +21,14 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(resp2.group(1)) + Integer.parseInt(resp2.group(2)));
         }
 
-        //Matcher resp3 = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
-        //if (resp3.matches()) {
-          //  return String.valueOf(Integer.parseInt(resp3.group(1)) + Integer.parseInt(resp3.group(2)));
-        //}
-
-        //which of the following numbers is the largest: 95, 84
+        Matcher resp3 = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
+        if (resp3.matches()) {
+            if (Integer.parseInt(resp3.group(1)) > Integer.parseInt(resp3.group(2))) {
+                return String.valueOf(Integer.parseInt(resp3.group(1)));
+            } else {
+                return String.valueOf(Integer.parseInt(resp3.group(2)));
+            }
+        }
 
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
         if (sumMatcher.matches()) {
