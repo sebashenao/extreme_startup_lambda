@@ -31,8 +31,10 @@ public class ResponderModel {
             }
         }
 
-        Matcher resp4 = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
-
+        Matcher resp4 = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+        if (resp4.matches()) {
+            respuesta =  String.valueOf(Integer.parseInt(resp4.group(1)) * Integer.parseInt(resp4.group(2)));
+        }
         //which of the following numbers is the largest: 892, 97, 70, 508
 
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
