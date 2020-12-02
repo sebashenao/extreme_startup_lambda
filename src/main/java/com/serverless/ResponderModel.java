@@ -16,6 +16,11 @@ public class ResponderModel {
             return teamName;
         }
 
+        Matcher resp2 = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
+        if (resp2.matches()) {
+            return String.valueOf(Integer.parseInt(resp2.group(1)) + Integer.parseInt(resp2.group(2)));
+        }
+
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
         if (sumMatcher.matches()) {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
