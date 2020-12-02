@@ -20,4 +20,15 @@ public class ResponderModelTest {
         //Assert
         assertThat(respuesta).isEqualTo("dca");
     }
+    @Test
+    public void devolverNombre() {
+        //Arrange
+        String pregunta = ".*what is the sum of 5 and 10";
+
+        //Act
+        String respuesta = responder.answer(pregunta);
+
+        //Assert
+        assertThat(respuesta).isEqualTo("14");
+    }
 }
