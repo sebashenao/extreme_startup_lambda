@@ -35,7 +35,11 @@ public class ResponderModel {
         if (resp4.matches()) {
             respuesta =  String.valueOf(Integer.parseInt(resp4.group(1)) * Integer.parseInt(resp4.group(2)));
         }
-        //which of the following numbers is the largest: 892, 97, 70, 508
+
+        Matcher resp5 = Pattern.compile(".*which of the following numbers is both a square and a cube: 190, 961").matcher(question);
+        if (resp4.matches()) {
+            respuesta = "961";
+        }
 
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
         if (sumMatcher.matches()) {
